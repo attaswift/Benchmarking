@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Attabench",
+    name: "Benchmarking",
     products: [
         .library(name: "Benchmarking", targets: ["Benchmarking", "BenchmarkIPC"]),
     ],
