@@ -95,6 +95,10 @@ extension Benchmark {
     }
 
     func attarun(reportFile: String) throws {
+        // Turn off output buffering.
+        setbuf(stdout, nil)
+        setbuf(stderr, nil)
+
         let decoder = JSONDecoder()
         guard let outputHandle = FileHandle(forWritingAtPath: reportFile) else {
             throw CocoaError.error(.fileNoSuchFile)
