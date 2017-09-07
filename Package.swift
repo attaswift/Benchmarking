@@ -7,7 +7,7 @@ let package = Package(
         .library(name: "Benchmarking", targets: ["Benchmarking", "BenchmarkIPC"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/attaswift/OptionParser", .branch("master")),
+        .package(url: "https://github.com/attaswift/OptionParser", from: "1.0.0"),
     ],
     targets: [
         .target(name: "BenchmarkIPC", path: "BenchmarkIPC"),
