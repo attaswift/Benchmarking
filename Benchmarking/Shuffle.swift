@@ -28,19 +28,19 @@ extension FixedWidthInteger {
     }
 }
 
-extension RandomAccessCollection where IndexDistance: FixedWidthInteger {
+extension RandomAccessCollection {
     public func randomElement() -> Element {
         precondition(count > 0)
-        let offset = Self.IndexDistance.random(below: count)
+        let offset = Int.random(below: count)
         let index = self.index(self.startIndex, offsetBy: offset)
         return self[index]
     }
 }
 
-extension RandomAccessCollection where Self: MutableCollection, IndexDistance: FixedWidthInteger {
+extension RandomAccessCollection where Self: MutableCollection {
     public mutating func shuffle() {
         for i in indices {
-            let offset = IndexDistance.random(below: self.distance(from: i, to: self.endIndex))
+            let offset = Int.random(below: self.distance(from: i, to: self.endIndex))
             let j = self.index(i, offsetBy: offset)
             if i != j {
                 self.swapAt(i, j)
